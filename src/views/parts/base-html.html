@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% block extraMetas %}   
+    {% endblock %}
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="/styles/global.css">
+    <link rel="stylesheet" href="/styles/components/header.css">
+
+    {% block styles %}
+    {% endblock styles %}
+
+    <link rel="stylesheet" href="/styles/responsive.css">
+
+    {% block metaInfos %}
+        <title>Blog</title>
+        <meta name="description"
+            content="Venha conhecer o melhor blog de toda interne, com conteúdos sempre atualizados e gratuito!">
+    {% endblock metaInfos %}
+</head>
+
+<body>
+
+    {% block header %}
+        {% include "./header.html" %}
+    {% endblock header %}
+
+    {% block content %}
+    {% endblock content %}
+
+    <script src="/scripts/MenuControl.js"></script>
+    {% block scripts %}
+    {% endblock scripts %}
+</body>
+
+</html>

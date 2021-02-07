@@ -1,0 +1,81 @@
+{% extends "./parts/base-html.html" %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/pages/index.css">
+{% endblock styles %}
+
+{% block content %}
+    <section id="PresentHeader">
+        <div id="Container">
+            <div id="Content">
+                <h2>Venha ler os melhores posts, sempre atualizados!</h2>
+                <p>Aqui você vai encontrar mais de 20.000 artigos, notícias e tutoriais que vão te ajudar na sua carreira como programador. Você também pode ajudar milhares de programadores escrevendo artigos!</p>
+            </div>
+            <div id="ActionsButtons">
+                <a href="#" rel="internal"><i class="fas fa-plus"></i> Criar conta</a>
+                <a href="#" rel="internal"><i class="fas fa-file-alt"></i> Postagens</a>
+            </div>
+        </div>
+    </section>
+    <section id="Counters">
+        <div id="CountersContainer">
+            <div class="Counter">
+                <h3>20.000</h3>
+                <p><i class="fas fa-newspaper"></i> Posts</p>
+            </div>
+            <div class="Counter">
+                <h3>100.000</h3>
+                <p><i class="fas fa-users"></i> Usuários</p>
+            </div>
+            <div class="Counter">
+                <h3>1.250</h3>
+                <p><i class="fas fa-file-alt"></i> Blogs</p>
+            </div>
+        </div>
+    </section>
+    <section id="BenefitsContainer">
+        <h2>Veja algumas vantagens de usar o (nome):</h2>
+        <div id="Benefits">
+            <div class="Benefit">
+                <i class="fas fa-book-reader"></i>
+                <h3>Leia vários posts de graça!</h3>
+                <p>Leia quantos posts quiser totalmente de graça e pelo tempo quiser!</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-quote-right"></i>
+                <h3>Escreva seus posts!</h3>
+                <p>Você pode escrever posts para o site e gerência-los com sua equipe de qualquer lugar!</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-cogs"></i>
+                <h3>CMS</h3>
+                <p>Crie seus posts com a poderosa linguagem Markdown, sem precisar usar programas externos!</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-chart-line"></i>
+                <h3>Ótimo SEO!</h3>
+                <p>Seus posts não ficarão no esquecimento, todos os posts são rankeados em ótimas posições no Google!</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-shield-alt"></i>
+                <h3>Conteúdo seguro!</h3>
+                <p>Todos os posts são moderados e monitorados para que não haja informações duvidosas, falsas ou que possam prejudicar alguém de alguma maneira!</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-copyright"></i>
+                <h3>Autoria protegida!</h3>
+                <p>Todo o conteúdo postado é de direito do autor, não podendo ser replicado por outras pessoas.</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-users"></i>
+                <h3>Conquiste fãs!</h3>
+                <p>Conquiste seguidores para acompanhar seu trabalho e ver suas publicações!</p>
+            </div>
+            <div class="Benefit">
+                <i class="fas fa-bell"></i>
+                <h3>Receba notificações!</h3>
+                <p>Não se preocupe de perder os novos posts dos seus escritores favoritos, nos sempre avisaremos a você!</p>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

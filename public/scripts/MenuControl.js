@@ -1,0 +1,1 @@
+const menu = document.querySelector('#NavMenu');document.querySelector('.OpenMobileMenu').addEventListener('click', () => menu.classList.toggle('open'))
