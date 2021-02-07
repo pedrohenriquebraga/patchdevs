@@ -16,6 +16,7 @@
         integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <link rel="stylesheet" href="/styles/global.css">
     <link rel="stylesheet" href="/styles/components/header.css">
+    <link rel="stylesheet" href="/styles/components/footer.css">
 
     {% block styles %}
     {% endblock styles %}
@@ -39,6 +40,9 @@
     {% endblock content %}
 
     <script src="/scripts/MenuControl.js"></script>
+
+    {% include "./footer.html" %}
+
     {% block scripts %}
     {% endblock scripts %}
 </body>
