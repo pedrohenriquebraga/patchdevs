@@ -1,0 +1,38 @@
+{% extends "./parts/base-html.html" %}
+
+{% block metaInfos %}
+    <title>Faça o login para aproveitar ao máximo!</title>
+    <meta name="description" content="Acesse sua conta para liberar várias funcionalidades incríveis!">
+{% endblock metaInfos %}
+
+{% block styles %}
+    <link rel="stylesheet" href="/styles/pages/login.css">
+{% endblock styles %}
+
+{% block content %}
+    <main>
+        <div id="LoginContainer">
+            <form action="#" method="post">
+                <!-- <p class="LoginError">Email e/ou senha incorretos!</p> -->
+                <h1>Acesse sua conta</h1>
+                <p>Não tem conta? <a href="#">Registre-se!</a></p>
+                <p><a href="#">Esqueci minha senha!</a></p>
+                <fieldset>
+                    <div class="FieldContainer">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" name="email" id="EmailField" required placeholder="seu@email.com">
+                    </div>
+                    <div class="FieldContainer">
+                        <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                        <input type="password" name="password" id="PasswordField" required >
+                    </div>
+                </fieldset>
+                 <button type="submit"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+            </form>
+            <div id="RightSide">
+                <h2>Faça o login no site e aproveite várias vantagens!</h2>
+            </div>
+        </div>
+    </main>
+{% endblock content %}
+
