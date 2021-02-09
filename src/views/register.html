@@ -1,58 +1,69 @@
 {% extends "./parts/base-html.html" %}
 
 {% block metaInfos %}
-    <title>Seja bem-vindo ao PatchDevs</title>
-    <meta name="description" content="Cadastra-se para obter vantagens incríveis e liberar várias funcionalidades!">
+<title>Seja bem-vindo ao PatchDevs</title>
+<meta name="description" content="Cadastra-se para obter vantagens incríveis e liberar várias funcionalidades!">
 {% endblock metaInfos %}
 
 {% block styles %}
-    <link rel="stylesheet" href="/styles/pages/register.css">
+<link rel="stylesheet" href="/styles/pages/register.css">
 {% endblock styles %}
 
 {% block content %}
-    <main>
-        <div id="RegisterContainer">
-            <div id="RightSide">
-                <h2>Cadastra-se para obter vantagens incríveis e liberar várias funcionalidades!</h2>
-            </div>
-            <form action="#" method="post">
-                <!-- <p class="RegisterError">Email e/ou senha incorretos!</p> -->
-                <h1>Crie sua conta</h1>
-                <p>Já tem conta? <a href="/login">Entre já!</a></p>
-                <fieldset>
-                    <div class="FieldContainer">
-                        <label for="name"><i class="fas fa-signature"></i> Seu nome</label>
-                        <input type="text" name="name" id="NameField" required >
-                    </div>
-                    <div class="FieldContainer">
-                        <label for="username"><i class="fas fa-user"></i> Nome de usuário</label>
-                        <input type="text" name="username" id="UsernameField" required >
-                        <p class="warning">O nome deve conter apenas letras, <br> números e caracteres especiais.</p>
-                        <p class="error NameError"></p>
-                    </div>
-                    <div class="FieldContainer">
-                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                        <input type="email" name="email" id="EmailField" required placeholder="seu@email.com">
-                    </div>
-                    <div class="FieldContainer">
-                        <label for="password"><i class="fas fa-lock"></i> Senha</label>
-                        <input type="password" name="password" id="PasswordField" required >
-                        <p class="error PassError"></p>
-                        <p class="warning">
-                            Sua senha deve: conter de 8 a 16 caracteres <br>
-                            Ao menos 1 número <br>
-                            Letras maiúsculas e minúsculas
-                        </p>
-                    </div>
-                    <div class="FieldContainer">
-                        <label for="confirmPassword"><i class="fas fa-lock"></i> Confirme sua senha</label>
-                        <input type="password" name="confirmPassword" id="ConfirmPasswordField" required >
-                        <p class="error CPError"></p>
-                    </div>
-                </fieldset>
-                 <button type="submit" disabled><i class="fas fa-sign-in-alt"></i> Registrar-se</button>
-            </form>
+<main>
+    <div id="RegisterContainer">
+        <div id="RightSide">
+            <h2>Cadastra-se para obter vantagens incríveis e liberar várias funcionalidades!</h2>
         </div>
-    </main>
+        <form action="#" method="post">
+            <!-- <p class="RegisterError">Email e/ou senha incorretos!</p> -->
+            <h1>Crie sua conta</h1>
+            <p>Já tem conta? <a href="/login">Entre já!</a></p>
+            <fieldset>
+                <div class="FieldContainer">
+                    <label for="name"><i class="fas fa-signature"></i> Seu nome</label>
+                    <input type="text" name="name" id="NameField" required>
+                </div>
+                <div class="FieldContainer">
+                    <label for="username"><i class="fas fa-user"></i> Nome de usuário</label>
+                    <input type="text" name="username" minlength="3" maxlength="30" id="UsernameField" required
+                        placeholder="SeuNome">
+                    <p class="error NameError"></p>
+                    <p class="warning">
+                        O nome deve conter apenas letras, <br>
+                        números e caracteres especiais e só <br>
+                        pode conter de 3 a 30 caracteres.
+                    </p>
+                </div>
+                <div class="FieldContainer">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" name="email" id="EmailField" required placeholder="seu@email.com">
+                </div>
+                <div class="FieldContainer">
+                    <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                    <input type="password" minlength="8" maxlength="16" name="password" id="PasswordField" required>
+                    <p class="error PassError"></p>
+                    <p class="warning">
+                        Sua senha deve: conter de 8 a 16 caracteres, <br>
+                        ao menos 1 número e <br>
+                        letras maiúsculas e minúsculas
+                    </p>
+                </div>
+                <div class="FieldContainer">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirme sua senha</label>
+                    <input type="password" name="confirmPassword" minlength="8" maxlength="16" id="ConfirmPasswordField"
+                        required>
+                    <p class="error CPError"></p>
+                </div>
+            </fieldset>
+            <button type="submit" id="ButtonSubmit" disabled>
+                <i class="fas fa-sign-in-alt"></i> Registrar-se
+            </button>
+        </form>
+    </div>
+</main>
 {% endblock content %}
 
+{% block scripts %}
+<script src="/scripts/pages/register.js"></script>
+{% endblock scripts %}
