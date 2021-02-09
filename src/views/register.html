@@ -15,17 +15,17 @@
         <div id="RightSide">
             <h2>Cadastra-se para obter vantagens incríveis e liberar várias funcionalidades!</h2>
         </div>
-        <form action="#" method="post">
-            <!-- <p class="RegisterError">Email e/ou senha incorretos!</p> -->
+        <form action="#" method="post" autocomplete="off">
+            <!-- <p class="RegisterError">Email e/ou nome usuários já existem!</p> -->
             <h1>Crie sua conta</h1>
             <p>Já tem conta? <a href="/login">Entre já!</a></p>
             <fieldset>
                 <div class="FieldContainer">
-                    <label for="name"><i class="fas fa-signature"></i> Seu nome</label>
+                    <label for="NameField"><i class="fas fa-signature"></i> Seu nome</label>
                     <input type="text" name="name" id="NameField" required>
                 </div>
                 <div class="FieldContainer">
-                    <label for="username"><i class="fas fa-user"></i> Nome de usuário</label>
+                    <label for="UsernameField"><i class="fas fa-user"></i> Nome de usuário</label>
                     <input type="text" name="username" minlength="3" maxlength="30" id="UsernameField" required
                         placeholder="SeuNome">
                     <p class="error NameError"></p>
@@ -36,21 +36,21 @@
                     </p>
                 </div>
                 <div class="FieldContainer">
-                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <label for="EmailField"><i class="fas fa-envelope"></i> Email</label>
                     <input type="email" name="email" id="EmailField" required placeholder="seu@email.com">
                 </div>
                 <div class="FieldContainer">
-                    <label for="password"><i class="fas fa-lock"></i> Senha</label>
+                    <label for="PasswordField"><i class="fas fa-lock"></i> Senha</label>
                     <input type="password" minlength="8" maxlength="16" name="password" id="PasswordField" required>
                     <p class="error PassError"></p>
                     <p class="warning">
                         Sua senha deve: conter de 8 a 16 caracteres, <br>
-                        ao menos 1 número e <br>
-                        letras maiúsculas e minúsculas
+                        ao menos 1 número e letras maiúsculas<br>
+                        e minúsculas
                     </p>
                 </div>
                 <div class="FieldContainer">
-                    <label for="confirmPassword"><i class="fas fa-lock"></i> Confirme sua senha</label>
+                    <label for="ConfirmPasswordField"><i class="fas fa-lock"></i> Confirme sua senha</label>
                     <input type="password" name="confirmPassword" minlength="8" maxlength="16" id="ConfirmPasswordField"
                         required>
                     <p class="error CPError"></p>
