@@ -12,7 +12,9 @@ nunjucks.configure(path.join(__dirname, "views"), {
     express: app
 })
 
-app.use(helmet())
+app.use(helmet({
+    contentSecurityPolicy: false
+}))
 app.use(cors({}))
 app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(appRoutes)

@@ -13,4 +13,8 @@ routes.get('/register', async (req, res) => {
     res.render('register.html')
 })
 
+routes.get('/posts', async (req, res) => {
+    res.render('posts.html')
+})
+
 module.exports = routes
