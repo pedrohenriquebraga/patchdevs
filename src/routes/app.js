@@ -1,8 +1,17 @@
 const express = require('express')
 const routes = express.Router()
+const sanitizeHTML = require('../../utils/sanitizeHtml')
 
 routes.get('/', async (req, res) => {
     res.render('index.html')
+})
+
+routes.get('/search', async (req, res) => {
+    const query = sanitizeHTML(req.query.query)
+
+    return res.render('search.html', {
+        query,
+    })
 })
 
 routes.get('/login', async (req, res) => {
