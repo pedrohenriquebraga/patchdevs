@@ -5,6 +5,7 @@ const helmet = require('helmet')
 const express = require('express')
 const nunjucks = require('nunjucks')
 const app = express()
+const serverStatic = require('serve-static')
 const compression = require('compression')
 
 nunjucks.configure(path.join(__dirname, "views"), {
@@ -17,7 +18,11 @@ app.use(helmet({
     contentSecurityPolicy: false
 }))
 app.use(cors({}))
-app.use(express.static(path.join(__dirname, '..', 'public')))
+app.use(serverStatic(path.join(__dirname, '..', 'public'), {
+    cacheControl: true,
+    maxAge: "1m",
+    dotfiles: "ignore",
+}))
 app.use(compression({
     level: 9
 }))
