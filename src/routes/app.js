@@ -1,8 +1,9 @@
 const express = require('express')
 const routes = express.Router()
 const sanitizeHTML = require('../../utils/sanitizeHtml')
+const CacheControl = require('./middlewares/CacheControl')
 
-routes.get('/', async (req, res) => {
+routes.get('/', CacheControl, async (req, res) => {
     res.render('index.html')
 })
 
@@ -26,7 +27,7 @@ routes.get('/posts', async (req, res) => {
     return res.render('posts.html')
 })
 
-routes.get('/post', async (req, res) => {
+routes.get('/post', CacheControl, async (req, res) => {
     return res.render('post.html', {
         blog: {
             name: "DevSec"
