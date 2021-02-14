@@ -19,4 +19,4 @@ app.use(cors({}))
 app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(appRoutes)
 
-app.listen(3000, () => console.log('Servidor na porta 3000'))
+app.listen(process.env.PORT || 3000, () => console.log(`Servidor na porta ${process.env.PORT || 3000}`))

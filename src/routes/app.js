@@ -15,15 +15,23 @@ routes.get('/search', async (req, res) => {
 })
 
 routes.get('/login', async (req, res) => {
-    res.render('login.html')
+    return res.render('login.html')
 })
 
 routes.get('/register', async (req, res) => {
-    res.render('register.html')
+    return res.render('register.html')
 })
 
 routes.get('/posts', async (req, res) => {
-    res.render('posts.html')
+    return res.render('posts.html')
+})
+
+routes.get('/post', async (req, res) => {
+    return res.render('post.html', {
+        blog: {
+            name: "DevSec"
+        }
+    })
 })
 
 module.exports = routes
