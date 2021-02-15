@@ -20,12 +20,10 @@ app.use(helmet({
 app.use(cors({}))
 app.use(serverStatic(path.join(__dirname, '..', 'public'), {
     cacheControl: true,
-    maxAge: "1m",
-    dotfiles: "ignore",
+    maxAge: "5m",
+    dotfiles: "ignore"
 }))
-app.use(compression({
-    level: 9
-}))
+app.use(compression({level: 7}))
 app.use(appRoutes)
 
 app.listen(process.env.PORT || 3000, () => console.log(`Servidor na porta ${process.env.PORT || 3000}`))
