@@ -1,7 +1,7 @@
 {% extends "./parts/base-html.html" %}
 
 {% block styles %}
-<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Roboto+Mono&display=swap"
     rel="stylesheet">
 <link rel="stylesheet" href="/styles/pages/post.css">
 {% endblock styles %}
@@ -31,12 +31,110 @@
         </div>
     </section>
     <main id="PostContent">
-        <h1>Lorem ipsum</h1>
-        <h2>Lorem ipsum</h2>
-        <h2>Lorem ipsum</h2>
-        <h4>Lorem ipsum</h4>
-        <h5>Lorem ipsum</h5>
-        <h6>Lorem ipsum</h6>
+        <h1>Texto escrito com tag h1, tag de título mais forte no HTML</h1>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam rem eligendi, assumenda itaque fugit, saepe fuga consequuntur excepturi, ratione repellat fugiat minus laborum error voluptatem aut iure provident optio?</p>
+        <br>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit natus repellat voluptate! Minima velit consequatur dolore. Culpa, quibusdam! Dignissimos debitis corporis, illo pariatur exercitationem saepe iste nulla et dolores similique?</p>
+
+        <h2>Abaixo temos um exemplo de <em>blockquote</em> (bloco de citação).</h2>
+
+        <blockquote>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore eius ex, voluptatum amet quas dolores ab at sed, in quos incidunt neque a corporis consequuntur iure! Fuga fugit qui quaerat. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+            <br>
+            <br>
+            Possimus velit optio expedita corrupti sit, eum modi deserunt itaque ea debitis laborum facere numquam distinctio, perspiciatis alias enim et voluptatum eaque.
+        </blockquote>
+
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero porro illum aliquam nulla <a href="#" target="_blank" rel="noopener noreferrer">magni voluptates non omnis! Incidunt architecto vero magnam aliquid atque</a>, beatae quaerat dignissimos commodi rem itaque voluptates.</p>
+
+        <code>
+            <pre>
+const form = document.querySelector('form')
+const username = document.querySelector('#UsernameField')
+const password = document.querySelector('#PasswordField')
+const confirmPass = document.querySelector('#ConfirmPasswordField')
+const button = document.querySelector('#ButtonSubmit')
+const regex = {
+    password: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,16}$/,
+    username: /^[-\w\.\$\*\!]{3,30}$/
+}
+
+const errors = {
+    username: document.querySelector('.NameError'),
+    password: document.querySelector('.PassError'),
+    confirmPass: document.querySelector('.CPError')
+}
+
+function validateRegister() {
+    if (!validateUsername()) {
+        button.disabled = true
+        return errors.username.innerHTML = "O nome de usuário não segue às regras!"
+    } else errors.username.innerHTML = ""
+
+    if (!validatePassword()) {
+        button.disabled = true
+        return errors.password.innerHTML = "Sua senha não segue os padrões de segurança!"
+    } else errors.password.innerHTML = ""
+
+    if (!combiningPassword()) {
+        button.disabled = true
+        return errors.confirmPass.innerHTML = "Às senhas não combinam!"
+    } else errors.confirmPass.innerHTML = ""
+
+    return button.disabled = false
+}
+
+function validateUsername() {
+    if (username.value.match(regex.username)) return true
+    return false
+}
+
+function validatePassword() {
+    if (password.value.match(regex.password)) return true
+    return false
+}
+
+function combiningPassword() {
+    if (password.value === confirmPass.value) return true
+    return false
+}
+
+username.addEventListener('keyup', validateRegister)
+password.addEventListener('keyup', validateRegister)
+            </pre>
+        </code>
+
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maiores omnis quia, illum molestias veniam nesciunt libero placeat, error consequatur dolorem dolorum dignissimos expedita magnam, iure facilis voluptatum soluta facere sint?</p>
+
+        <h2>Este é um exemplo de tabela, totalmente responsiva!</h2>
+
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+            <tr>
+                <td>Pedro Henrique</td>
+                <td>16</td>
+            </tr>
+            <tr>
+                <td>Ana Carolina</td>
+                <td>18</td>
+            </tr>
+            <tr>
+                <td>Laura</td>
+                <td>25</td>
+            </tr>
+            <tr>
+                <td>Pedro Henrique</td>
+                <td>60</td>
+            </tr>
+            <tr>
+                <td>Pedro Henrique</td>
+                <td>60</td>
+            </tr>
+        </table>
     </main>
 </section>
 {% endblock content %}
