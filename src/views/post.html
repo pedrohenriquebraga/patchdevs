@@ -36,7 +36,19 @@
         </div>
     </section>
     <main id="PostContent">
-        <h1>Texto escrito com tag h1, tag de título mais forte no HTML</h1>
+
+        <p>Aqui tem apenas alguns exemplos de como um post se comportará quando publicado por qualquer pessoa. Tudo aqui foi feito para ser totalmente responsivo automaticamente. Tags html não são permitidas, então muitas tags não serão usadas aqui no exemplo, já que não serão usadas na criação de posts, por isso só existem alguns exemplos aqui.</p>
+
+        <h1>Tags H</h1>
+
+        <p>Veja como às tags 'H' se comportam:</p>
+
+        <h1>H1</h1>
+        <h2>H2</h2>
+        <h3>H3</h3>
+        <h4>H4</h4>
+        <h5>H5</h5>
+        <h6>H6</h6>
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam rem eligendi, assumenda itaque fugit, saepe fuga consequuntur excepturi, ratione repellat fugiat minus laborum error voluptatem aut iure provident optio?</p>
         
@@ -52,6 +64,8 @@
             Possimus velit optio expedita corrupti sit, eum modi deserunt itaque ea debitis laborum facere numquam distinctio, perspiciatis alias enim et voluptatum eaque.
         </blockquote>
 
+        <h2>Veja como uma imagem se comporta no site:</h2>
+
         <img src="https://miro.medium.com/max/1000/1*Dv-iNtRbfeiko3E6uLdcXg.jpeg" alt="">
 
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero porro illum aliquam nulla <a href="#" target="_blank" rel="noopener noreferrer">magni voluptates non omnis! Incidunt architecto vero magnam aliquid atque</a>, beatae quaerat dignissimos commodi rem itaque voluptates.</p>
@@ -62,58 +76,63 @@
 
         <code>
             <pre>
-const form = document.querySelector('form')
-const username = document.querySelector('#UsernameField')
-const password = document.querySelector('#PasswordField')
-const confirmPass = document.querySelector('#ConfirmPasswordField')
-const button = document.querySelector('#ButtonSubmit')
-const regex = {
-    password: /^(?=.*[A-Z])(?=.*[0-9])(?=.*[a-z].*[a-z].*[a-z]).{8,16}$/,
-    username: /^[-\w\.\$\*\!]{3,30}$/
-}
+import 'reflect-metadata';
+import 'dotenv/config';
 
-const errors = {
-    username: document.querySelector('.NameError'),
-    password: document.querySelector('.PassError'),
-    confirmPass: document.querySelector('.CPError')
-}
+import express from 'express';
 
-function validateRegister() {
-    if (!validateUsername()) {
-        button.disabled = true
-        return errors.username.innerHTML = "O nome de usuário não segue às regras!"
-    } else errors.username.innerHTML = ""
+import cors from 'cors';
+import 'express-async-errors';
 
-    if (!validatePassword()) {
-        button.disabled = true
-        return errors.password.innerHTML = "Sua senha não segue os padrões de segurança!"
-    } else errors.password.innerHTML = ""
+import * as Sentry from '@sentry/node';
 
-    if (!combiningPassword()) {
-        button.disabled = true
-        return errors.confirmPass.innerHTML = "Às senhas não combinam!"
-    } else errors.confirmPass.innerHTML = ""
+import sentryConfig from '@config/sentry';
 
-    return button.disabled = false
-}
+import '@shared/adapters';
+import '@shared/infra/mongoose/connection';
+import TokenExpiredError from '@shared/errors/TokenExpiredError';
 
-function validateUsername() {
-    if (username.value.match(regex.username)) return true
-    return false
-}
+import routes from './api/v1';
 
-function validatePassword() {
-    if (password.value.match(regex.password)) return true
-    return false
-}
+const app = express();
 
-function combiningPassword() {
-    if (password.value === confirmPass.value) return true
-    return false
-}
+Sentry.init({ dsn: sentryConfig.dsn });
 
-username.addEventListener('keyup', validateRegister)
-password.addEventListener('keyup', validateRegister)
+app.use(Sentry.Handlers.requestHandler());
+
+app.use(express.json());
+app.use(
+    cors({
+        exposedHeaders: ['X-Total-Count', 'X-Total-Page'],
+    }),
+);
+app.use(routes);
+
+app.use(Sentry.Handlers.errorHandler());
+
+app.use(
+    (
+    err: Error,
+    req: express.Request,
+    res: express.Response,
+    _: express.NextFunction,
+    ) => {
+    if (process.env.NODE_ENV !== 'production') {
+        console.log(err.stack);
+    }
+
+    if (err instanceof TokenExpiredError) {
+            return res.status(401).json({
+            code: 'token.expired',
+            message: err.message,
+        });
+    }
+
+    return res.status(500).json({ error: 'Internal server error' });
+    },
+);
+
+export default app;
             </pre>
         </code>
 
