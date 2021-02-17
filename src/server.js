@@ -17,7 +17,9 @@ nunjucks.configure(path.join(__dirname, "views"), {
 app.use(helmet({
     contentSecurityPolicy: false,
     hsts: {
-        preload: true
+        maxAge: 3600,
+        preload: true,
+        includeSubDomains: true
     }
 }))
 app.use(cors({}))
