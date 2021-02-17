@@ -50,3 +50,4 @@ function combiningPassword() {
 
 username.addEventListener('keyup', validateRegister)
 password.addEventListener('keyup', validateRegister)
+confirmPass.addEventListener('keyup', validateRegister)
