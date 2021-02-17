@@ -9,17 +9,22 @@
 {% block content %}
 <section id="PostContainer">
     <section id="PostHeader">
-        <img class="PostThumb" src="https://miro.medium.com/max/700/0*fbrpEf9ZsGCqeIgt" alt="">
-        <h1>Aplicativos não viverão para sempre!</h1>
+        <div class="BlogInfos">
+            <img src="https://pbs.twimg.com/profile_images/526034563017887745/vM02CPfP.png" alt="">
+            <a href="#" class="BlogName">DevSec</a>
+            <span class="BlogOwner">Elon Musk</span>
+        </div>
+        <img class="PostThumb" src="https://s2.glbimg.com/Q2cF6UvQVfp7gSQx9MbfhK5q4AA=/1200x/smart/filters:cover():strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2020/D/T/P9e3UWTzq3kiAiCgoqZQ/top-apps-worldwide-dec-2019-by-downloads.jpg" alt="">
+        <h1 class="PostTitle">Aplicativos não viverão para sempre!</h1>
         <p class="PostLead">Talvez seja hora de deixar de lado aplicativos, utilitários, códigos e hardware antigos</p>
         <div class="PostInfos">
             <div class="PostAuthor">
                 <span><i class="fas fa-user"></i> Escrito por</span> <a href="#" class="Author">@ElonMusk</a>
             </div>
             <div class="PostDates">
-                <p class="Posted"><i class="fas fa-paper-plane"></i> Postado em 20/01/2020, 18:56</p>
-                <p class="Edited"><i class="fas fa-pencil-alt"></i> Editado em 21/02/2021, 09:25</p>
-                <p class="ReadingTime"><i class="fas fa-clock"></i> 4 min. de leitura</p>
+                <p class="Posted">Postado em 20/01/2020, 18:56</p>
+                <p class="Edited">Editado em 21/02/2021, 09:25</p>
+                <p class="ReadingTime">4 min. de leitura</p>
             </div>
         </div>
         <div id="PostActions">
@@ -35,7 +40,6 @@
 
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum aperiam rem eligendi, assumenda itaque fugit, saepe fuga consequuntur excepturi, ratione repellat fugiat minus laborum error voluptatem aut iure provident optio?</p>
         
-        <img src="https://miro.medium.com/max/1000/1*Dv-iNtRbfeiko3E6uLdcXg.jpeg" alt="">
 
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fugit natus repellat voluptate! Minima velit consequatur dolore. Culpa, quibusdam! Dignissimos debitis corporis, illo pariatur exercitationem saepe iste nulla et dolores similique?</p>
 
@@ -47,6 +51,8 @@
             <br>
             Possimus velit optio expedita corrupti sit, eum modi deserunt itaque ea debitis laborum facere numquam distinctio, perspiciatis alias enim et voluptatum eaque.
         </blockquote>
+
+        <img src="https://miro.medium.com/max/1000/1*Dv-iNtRbfeiko3E6uLdcXg.jpeg" alt="">
 
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero porro illum aliquam nulla <a href="#" target="_blank" rel="noopener noreferrer">magni voluptates non omnis! Incidunt architecto vero magnam aliquid atque</a>, beatae quaerat dignissimos commodi rem itaque voluptates.</p>
 
@@ -144,3 +150,6 @@ password.addEventListener('keyup', validateRegister)
     </main>
 </section>
 {% endblock content %}
+
+{% block scripts %}
+{% endblock scripts %}
