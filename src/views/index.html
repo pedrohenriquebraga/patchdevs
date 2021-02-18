@@ -16,21 +16,23 @@
             <a href="/register" rel="internal"><i class="fas fa-plus"></i> Criar conta</a>
             <a href="/posts" rel="internal"><i class="fas fa-file-alt"></i> Postagens</a>
         </div>
+        <ul id="circles" aria-disabled="true">
+        </ul>
     </div>
 </section>
 
 <section id="Counters">
     <div id="CountersContainer">
         <div class="Counter">
-            <h3>20.000</h3>
+            <h3 class="CounterElm">20.000</h3>
             <p><i class="fas fa-newspaper"></i> Posts</p>
         </div>
         <div class="Counter">
-            <h3>100.000</h3>
+            <h3 class="CounterElm">100.000</h3>
             <p><i class="fas fa-users"></i> Usuários</p>
         </div>
         <div class="Counter">
-            <h3>1.250</h3>
+            <h3 class="CounterElm">1.250</h3>
             <p><i class="fas fa-file-alt"></i> Blogs</p>
         </div>
     </div>
@@ -194,3 +196,8 @@
     </main>
 </section>
 {% endblock content %}
+
+{% block scripts %}
+    <script src="/scripts/animations/index.js"></script>
+    <script src="/scripts/animations/counter.js"></script>
+{% endblock scripts %}
