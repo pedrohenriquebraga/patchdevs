@@ -1,7 +1,7 @@
 const circles = document.querySelector("#circles");
 let c = 0
 
-for (c = 0; c <= 35; c++) {
+for (c = 0; c <= 25; c++) {
     const li = document.createElement("li");
     const size = ((Math.random() * (20 - 5) + 5) / 10).toFixed(1);
     const position = Math.random() * (99 - 1) + 1;
