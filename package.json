@@ -4,6 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "postinstall": "npm run build",
     "build": "tsc",
     "start": "node ./build/server.js",
     "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts"
