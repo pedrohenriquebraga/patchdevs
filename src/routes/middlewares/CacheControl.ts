@@ -1,4 +1,6 @@
-const CacheControl = (req, res, next) => {
+import { Request, Response, NextFunction } from "express"
+
+const CacheControl = (req: Request, res: Response, next: NextFunction) => {
     if (req.method == "GET") {
         res.set({"Cache-Control": "private, max-age=30, stale-while-revalidate=60"})
     } else {
@@ -8,4 +10,4 @@ const CacheControl = (req, res, next) => {
     return next()
 }
 
-module.exports = CacheControl
+export { CacheControl }
